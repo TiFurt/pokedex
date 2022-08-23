@@ -1,0 +1,23 @@
+:host{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1em;
+  width: 45%;
+  justify-content: space-between;
+}
+
+.cards {
+  background: #FFF;
+  border-radius: 0.6rem;
+  width: 49%;
+  text-decoration: none;
+  margin-bottom: 1em;
+  height: 10em;
+
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+
+}

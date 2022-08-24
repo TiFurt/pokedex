@@ -10,6 +10,8 @@ export class PokemonCardComponent implements OnInit {
 
   public pokedex: Array<any> = []
 
+  public count: string = ''
+
   constructor(private getPokedexService: GetPokedexService) { }
 
   ngOnInit(): void {

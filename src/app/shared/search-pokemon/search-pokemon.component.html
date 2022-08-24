@@ -1,1 +1,1 @@
-<input #search class="search" type="text" [(ngModel)]="inputSearch" (keyup.enter)="searchPokemon(search.value)">
+<input #search class="search" type="text" (keyup.enter)="searchPokemon(search.value)" placeholder="Find Pokemon">

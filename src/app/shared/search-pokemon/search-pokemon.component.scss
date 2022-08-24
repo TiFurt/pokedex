@@ -1,11 +1,18 @@
 :host{
-  width: 45%;
+  width: 40%;
 }
 
 .search {
+  font-family: Roboto, sans-serif;
+  font-size: 1.2em;
+
   background: #FFF;
-  opacity: 20%;
-  border-radius: 10px;
+  opacity: 30%;
+
+  border-radius: 1.5em;
+  border-style: none;
+
   width: 100%;
   min-height: 3em;
+  text-align: center;
 }

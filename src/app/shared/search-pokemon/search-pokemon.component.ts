@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {GetPokedexService} from "../../services/get-pokedex.service";
+
 
 @Component({
   selector: 'app-search-pokemon',
@@ -7,15 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPokemonComponent implements OnInit {
 
-  public inputSearch: string = ''
+  @Output() public searchEmit: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  constructor(private getPokedexService:GetPokedexService) { }
 
   ngOnInit(): void {
+
   }
 
-  searchPokemon(event:string) {
-    console.log(event)
+
+  searchPokemon(search:string) {
+    this.searchEmit.emit(search)
   }
 
 }

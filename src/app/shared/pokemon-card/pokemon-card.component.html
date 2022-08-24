@@ -1,5 +1,8 @@
+<app-search-pokemon (searchEmit)="searchPokemon($event)"></app-search-pokemon>
+{{search}}
+{{search.length}}
 <section class="card-list">
-  <div class="card" *ngFor="let pokemon of pokedex">
+  <div class="card" *ngFor="let pokemon of pokedex.results">
     <div class="card-body">
       <h2 class="card-title">{{pokemon.name | titlecase}}</h2>
       <ul>
@@ -12,4 +15,7 @@
       </section>
     </div>
   </div>
+</section>
+<section *ngIf="!search.length" class="load-pokemon">
+  <app-more-pokemons (click)="getNextPage(pokedex.next)"></app-more-pokemons>
 </section>

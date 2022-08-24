@@ -8,6 +8,7 @@ import { PokemonCardComponent } from './shared/pokemon-card/pokemon-card.compone
 import { SearchPokemonComponent } from './shared/search-pokemon/search-pokemon.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { MorePokemonsComponent } from './shared/more-pokemons/more-pokemons.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {HttpClientModule} from "@angular/common/http";
     AppComponent,
     HomeComponent,
     PokemonCardComponent,
-    SearchPokemonComponent
+    SearchPokemonComponent,
+    MorePokemonsComponent
   ],
   imports: [
     BrowserModule,

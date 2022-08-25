@@ -33,7 +33,8 @@ export class PokemonCardComponent implements OnInit {
     this.getPokedexService.getPokedex().subscribe(
       res => {
         this.pokedexReset = res;
-        this.pokedex = {...this.pokedexReset}
+        this.pokedex = {...this.pokedexReset};
+        console.log(this.pokedex)
       },
       error => console.log(error)
     )
@@ -57,7 +58,7 @@ export class PokemonCardComponent implements OnInit {
     if (event.trim().length) {
       this.getPokedexService.getAllPokemons().pipe(
         tap( res => {
-          this.pokedex.results = res.results.filter(pokemon => pokemon.name.includes(event.trim()))
+          this.pokedex.results = res.results.filter(pokemon => pokemon.name.toUpperCase().includes(event.trim().toUpperCase()))
         })
       ).subscribe()
     }else {

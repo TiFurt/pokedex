@@ -25,6 +25,6 @@ export interface PokemonStatus {
       home:any,},
     versions:any},
   stats: Array<any>,
-  types: Array<any>,
+  types: Array<{ slot: number, type:{name: string, url:string} }>,
   weight: number,
 }

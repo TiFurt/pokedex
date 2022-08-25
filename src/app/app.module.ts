@@ -9,6 +9,7 @@ import { SearchPokemonComponent } from './shared/search-pokemon/search-pokemon.c
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { MorePokemonsComponent } from './shared/more-pokemons/more-pokemons.component';
+import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MorePokemonsComponent } from './shared/more-pokemons/more-pokemons.comp
     HomeComponent,
     PokemonCardComponent,
     SearchPokemonComponent,
-    MorePokemonsComponent
+    MorePokemonsComponent,
+    PokemonPageComponent
   ],
   imports: [
     BrowserModule,

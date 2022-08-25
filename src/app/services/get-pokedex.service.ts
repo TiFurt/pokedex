@@ -2,6 +2,7 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable, tap} from "rxjs";
 import {Pokedex} from "../models/pokedex";
+import {PokemonStatus} from "../models/pokemon-status";
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,13 @@ export class GetPokedexService {
 
   private allPokemon: string = 'pokemon?limit=100000&offset=0'
 
+  private pokemonUrl: string = 'https://pokeapi.co/api/v2/pokemon/'
+
   constructor(private http: HttpClient) {
   }
 
-  public getPokedex(): Observable<{ count: number, next: string, previous: string, results: Array<any> }> {
-    return this.pokedex = this.http.get<{ count: number, next: string, previous: string, results: Array<any> }>(`${this.pokedexUrl}${this.pokemonSpecies}`).pipe(
+  public getPokedex(): Observable<Pokedex> {
+    return this.pokedex = this.http.get<Pokedex>(`${this.pokedexUrl}${this.pokemonSpecies}`).pipe(
       tap(res => {
         res.results.map((resPokemons: any) => {
 
@@ -58,19 +61,21 @@ export class GetPokedexService {
 
   public getAllPokemons(): Observable<Pokedex>{
     return this.http.get<Pokedex>(`${this.pokedexUrl}${this.allPokemon}`).pipe(
-      tap(res => {
-        res.results.map((resPokemon: any) =>
-          this.apiGetPokemon(resPokemon.url).subscribe(
-            res => resPokemon.status = res
-          )
-        )
-      })
+      res => res,
+      error => error,
+    )
+  }
+
+  public getSearchedPokemon(url: string): Observable<PokemonStatus> {
+    return this.http.get<PokemonStatus>(url).pipe(
+      res => res,
+      error => error,
     )
   }
 
 
-  public getPokemon(url: string): Observable<object> {
-    return this.http.get<Pokedex>(url).pipe(
+  public getPokemon(id: number): Observable<PokemonStatus> {
+    return this.http.get<PokemonStatus>(`${this.pokemonUrl}${id}`).pipe(
       res => res,
       error => error,
     )

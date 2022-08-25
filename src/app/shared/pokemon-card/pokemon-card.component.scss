@@ -119,14 +119,16 @@
 
   width: 100%;
   min-height: 6em;
-  max-width: 7em;
+
+  max-height: 96px;
+  max-width: 110px;
 
   bottom: 1em;
   right: 1em;
   background: url("../../../assets/bg/background-list-pokemons.svg") no-repeat;
 
   img{
-    width: 4em;
+    width: 60%;
   }
 
 

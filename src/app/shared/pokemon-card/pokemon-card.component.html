@@ -6,8 +6,7 @@
       <ul>
         <li [ngClass]="type.type.name" *ngFor="let type of pokemon.status.types">{{type.type.name}}</li>
       </ul>
-    </div>
-    <div class="card-body">
+
       <section class="pokemon-img">
         <img  [src]="pokemon.status.sprites.other.dream_world.front_default">
       </section>

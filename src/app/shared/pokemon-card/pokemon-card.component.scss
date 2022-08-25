@@ -17,42 +17,41 @@
   background: #FFF;
   border-radius: 0.6rem;
   width: 49%;
+  min-width: 18em;
   text-decoration: none;
-  margin-bottom: 1em;
+  margin: 1em 0.15em;
+
   height: 10em;
   display: flex;
 }
 
-@media screen and (max-width: 450px) {
-  :host{
-    width: 70%;
+@media screen and (max-width: 590px) {
 
-  }
-  .card{
-    width: 100%;
-  }
-}
-@media screen and (max-width: 330px) {
-  :host{
+  .card-list{
+    display: flex;
+    margin-top: 1em;
+    justify-content: center;
     width: 100%;
 
   }
-  .card{
-    width: 100%;
-  }
+
 }
+
+
+
 
 .card-body {
   position: relative;
-  width: 49%;
+  width: 100%;
   padding-left: 1em;
   .card-title {
-    font-family: Roboto;
-    margin-bottom: 0.6em;
+    font-family: Roboto-Italic, emoji;
+    margin: auto;
+    font-size: 2em;
   }
 
   ul{
-    font-family: Roboto, sans-serif;
+      font-family: Roboto-Regular, sans-serif;
 
     display: table-row;
     list-style: none;

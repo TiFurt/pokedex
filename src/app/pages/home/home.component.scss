@@ -5,18 +5,10 @@
   flex-direction: column;
   align-content: center;
   align-items: center;
-  width: 40%;
+  max-width: 37em;
+  margin: 0 auto;
 }
-@media screen and (max-width: 1190px) {
-  :host {
-    width: 70%;
-  }
-}
-@media screen and (max-width: 700px) {
-  :host {
-    width: 100%;
-  }
-}
+
 
 
 

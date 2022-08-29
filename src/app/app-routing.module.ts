@@ -5,7 +5,7 @@ import {PokemonPageComponent} from "./pages/pokemon-page/pokemon-page.component"
 
 const routes: Routes = [
   {path:'', component:HomeComponent,pathMatch:'full'},
-  {path:'pokemon/:id', component:PokemonPageComponent}
+  {path:'pokemon/:name', component:PokemonPageComponent}
 ];
 
 @NgModule({

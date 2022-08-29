@@ -1,4 +1,10 @@
-<p>{{pokemon.name}}</p>
-<p>{{pokemon.stats}}</p>
-<p>{{pokemon.name}}</p>
-<p>{{pokemon.name}}</p>
+<app-pokedex-header></app-pokedex-header>
+<div class="pokemon_stats">
+  <div class="pokemon_img">
+    <img [src]="pokemon.sprites.other['official-artwork'].front_default">
+  </div>
+  <div class="pokemon-name">
+    <h1>{{pokemonSpecie.names[0].name}}</h1>
+    <h2>{{pokemon.name | titlecase}}</h2>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.pokemon_stats{
+  position: relative;
+  background: #FFF;
+  border-radius: 2em;
+  height: 100%;
+  margin-top: 50px;
+  min-width: 37em;
+}
+.pokemon_img {
+  position: absolute;
+  top: -5em;
+  img{
+    width: 10em;
+  }
+}
+.pokemon-name{
+  font-family: Roboto-Italic, sans-serif;
+  color: #888888;
+  h1{
+    position: absolute;
+    right: 0.8em;
+    top: -2em;
+    opacity: 20%;
+    font-size: 3em;
+  }
+
+  h2{
+    position: absolute;
+    right: 2em;
+    top: -2em;
+
+  }
+}

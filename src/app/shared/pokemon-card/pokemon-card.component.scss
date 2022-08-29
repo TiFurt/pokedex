@@ -44,6 +44,8 @@
   position: relative;
   width: 100%;
   padding-left: 1em;
+  text-decoration: none;
+  color: black;
   .card-title {
     font-family: Roboto-Italic, emoji;
     margin: auto;
@@ -143,7 +145,7 @@
   background: url("../../../assets/bg/background-list-pokemons.svg") no-repeat;
 
   img{
-    width: 60%;
+    width: 80%;
   }
 
 

@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { MorePokemonsComponent } from './shared/more-pokemons/more-pokemons.component';
 import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
+import { PokedexHeaderComponent } from './shared/pokedex-header/pokedex-header.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.componen
     PokemonCardComponent,
     SearchPokemonComponent,
     MorePokemonsComponent,
-    PokemonPageComponent
+    PokemonPageComponent,
+    PokedexHeaderComponent
   ],
   imports: [
     BrowserModule,

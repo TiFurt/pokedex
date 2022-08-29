@@ -1,16 +1,17 @@
 <app-search-pokemon (searchEmit)="searchPokemon($event)"></app-search-pokemon>
 <section class="card-list">
   <div class="card" *ngFor="let pokemon of pokedex.results">
-    <div class="card-body">
-      <h2 class="card-title">{{pokemon.name | titlecase}}</h2>
-      <ul>
-        <li [ngClass]="type.type.name" *ngFor="let type of pokemon.status.types">{{type.type.name}}</li>
-      </ul>
-
-      <section class="pokemon-img">
-        <img  [src]="pokemon.status.sprites.other.dream_world.front_default">
-      </section>
-    </div>
+    <a [routerLink]="['pokemon/', pokemon?.name]" class="card-body">
+      <div>
+        <h2 class="card-title">{{pokemon.name | titlecase}}</h2>
+        <ul *ngIf="pokemon?.status?.types">
+          <li [ngClass]="type.type.name" *ngFor="let type of pokemon.status.types">{{type.type.name}}</li>
+        </ul>
+        <section class="pokemon-img">
+          <img  [src]="pokemon?.status?.sprites?.other?.['official-artwork']?.front_default" [alt]="pokemon.name">
+        </section>
+      </div>
+    </a>
   </div>
 </section>
 <section *ngIf="!search.length" class="load-pokemon">

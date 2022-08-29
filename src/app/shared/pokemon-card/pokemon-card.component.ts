@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GetPokedexService} from "../../services/get-pokedex.service";
 import {Pokedex} from "../../models/pokedex";
-import {map, tap} from "rxjs";
+import {debounceTime, tap} from "rxjs";
 
 @Component({
   selector: 'app-pokemon-card',
@@ -32,8 +32,8 @@ export class PokemonCardComponent implements OnInit {
   ngOnInit(): void {
     this.getPokedexService.getPokedex().subscribe(
       res => {
-        this.pokedexReset = res;
-        this.pokedex = {...this.pokedexReset};
+        this.pokedex = res;
+        this.pokedexReset = {...this.pokedex};
       },
       error => console.log(error)
     )
@@ -57,18 +57,18 @@ export class PokemonCardComponent implements OnInit {
     if (event.trim().length) {
       this.getPokedexService.getAllPokemons().pipe(
         tap( res => {
-          this.pokedex.results = res.results.filter(pokemon => pokemon.name.toUpperCase().includes(event.trim().toUpperCase()))
+          this.pokedex.results = res.results.filter(pokemon => pokemon.name.includes(event.trim().toLowerCase()))
           this.pokedex.results.map((pokemon) =>{
             this.getPokedexService.getSearchedPokemon(pokemon.url).pipe(
               tap(res=>{
                 pokemon.status = res
               })
-              ).subscribe()
+            ).subscribe()
           })
-        })
+        }),
       ).subscribe()
     }else {
-      this.pokedex = this.pokedexReset
+      this.pokedex = {...this.pokedexReset}
     }
     this.search = event
   }

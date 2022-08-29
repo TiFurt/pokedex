@@ -21,6 +21,8 @@ export class GetPokedexService {
 
   private pokemonUrl: string = 'https://pokeapi.co/api/v2/pokemon/'
 
+  private pokemonSpeciesUrl: string = 'https://pokeapi.co/api/v2/pokemon-species/'
+
   constructor(private http: HttpClient) {
   }
 
@@ -74,10 +76,17 @@ export class GetPokedexService {
   }
 
 
-  public getPokemon(id: number): Observable<PokemonStatus> {
-    return this.http.get<PokemonStatus>(`${this.pokemonUrl}${id}`).pipe(
+  public getPokemon(name: string): Observable<PokemonStatus> {
+    return this.http.get<PokemonStatus>(`${this.pokemonUrl}${name}`).pipe(
       res => res,
       error => error,
+    )
+  }
+
+  public getPokemonSpecies(name: string): Observable<any> {
+    return this.http.get<any>(`${this.pokemonSpeciesUrl}${name}`).pipe(
+      res => res,
+      error => error
     )
   }
 }

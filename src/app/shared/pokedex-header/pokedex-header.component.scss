@@ -1,0 +1,29 @@
+:host {
+  display: inline-flex;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.pokedex_header{
+  display: inline-flex;
+  max-width: 37em;
+  align-items: center;
+
+}
+
+
+.logo {
+  img {
+    width: 10vmax;
+  }
+}
+
+.pokedex_tittle {
+  color: #888888;
+  font-family: Roboto-Regular, sans-serif;
+
+  h1 {
+    font-size: 6vmax;
+  }
+}

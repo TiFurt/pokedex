@@ -1,9 +1,8 @@
-
 <div class="pokemon_stats">
   <div class="pokemon_img">
-    <img [src]="pokemon.sprites.other['official-artwork'].front_default" [alt]="pokemon.name">
+    <img class="img" [src]="pokemon.sprites.other['official-artwork'].front_default" [alt]="pokemon.name">
   </div>
-  <div class="pokemon-name">
+  <div class="pokemon_name">
     <h1>{{pokemonSpecie?.names[0]?.name}}</h1>
     <h2>{{pokemon.name | titlecase}}</h2>
   </div>
@@ -17,6 +16,7 @@
     </ul>
   </div>
   <div class="button">
-  <button class="button__comeback" (click)="homePage()" [ngStyle]="{'background': pokemonSpecie.color.name}">Voltar</button>
+    <button class="button__comeback" (click)="homePage()" [ngStyle]="{'background': pokemonSpecie.color.name}">Voltar
+    </button>
   </div>
 </div>

@@ -27,53 +27,51 @@ export class PokemonCardComponent implements OnInit {
 
   public search: string = ''
 
-  constructor(private getPokedexService: GetPokedexService) { }
 
-  ngOnInit(): void {
-    this.getPokedexService.getPokedex().subscribe(
-      res => {
-        this.pokedex = res;
-        this.pokedexReset = {...this.pokedex};
-      },
-      error => console.log(error)
-    )
+  constructor(private getPokedexService: GetPokedexService) {
   }
 
-  public getNextPage(url: string){
+  ngOnInit(): void {
+    this.getPokedexService.getPokedex().pipe(
+      tap(res => {
+        this.pokedex = res;
+        this.pokedexReset = {...this.pokedex};
+      })
+    ).subscribe()
+  }
+
+  public getNextPage(url: string) {
     this.getPokedexService.getNextPage(url).subscribe(
       res => {
-      this.pokedex.results = [...this.pokedex.results,...res.results];
-      this.pokedex.next = res.next;
-      this.pokedex.previous = res.previous;
+        this.pokedex.results = [...this.pokedex.results, ...res.results];
+        this.pokedex.next = res.next;
+        this.pokedex.previous = res.previous;
       },
-      error =>{
-      this.error = true
+      error => {
+        this.error = true
       })
   }
 
 
-
-  public searchPokemon(event: string){
+  public searchPokemon(event: string) {
     if (event.trim().length) {
       this.getPokedexService.getAllPokemons().pipe(
-        tap( res => {
+        tap(res => {
           this.pokedex.results = res.results.filter(pokemon => pokemon.name.includes(event.trim().toLowerCase()))
-          this.pokedex.results.map((pokemon) =>{
+          this.pokedex.results.map((pokemon) => {
             this.getPokedexService.getSearchedPokemon(pokemon.url).pipe(
-              tap(res=>{
+              tap(res => {
                 pokemon.status = res
               })
             ).subscribe()
           })
         }),
       ).subscribe()
-    }else {
+    } else {
       this.pokedex = {...this.pokedexReset}
     }
     this.search = event
   }
-
-
 
 
 }

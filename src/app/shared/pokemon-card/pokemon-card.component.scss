@@ -1,10 +1,10 @@
-:host{
+:host {
   width: 100%;
 
 }
 
 
-.card-list{
+.card-list {
   display: flex;
   flex-wrap: wrap;
   margin-top: 1em;
@@ -27,7 +27,7 @@
 
 @media screen and (max-width: 590px) {
 
-  .card-list{
+  .card-list {
     display: flex;
     margin-top: 1em;
     justify-content: center;
@@ -37,27 +37,24 @@
 
 }
 
-
-
-
 .card-body {
   position: relative;
   width: 100%;
   padding-left: 1em;
   text-decoration: none;
   color: black;
+
   .card-title {
     font-family: Roboto-Italic, emoji;
     margin: auto;
     font-size: 2em;
   }
 
-  ul{
-      font-family: Roboto-Regular, sans-serif;
-
+  ul {
+    font-family: Roboto-Regular, sans-serif;
     display: table-row;
-    list-style: none;
-    li{
+
+    li {
       font-size: 0.8em;
       text-align: center;
       min-width: 5em;
@@ -71,59 +68,75 @@
 
 }
 
-.normal{
+.normal {
   background: #C4BEB2;
 }
 
-.fire{
+.fire {
   background: #F08030;
 }
-.water{
+
+.water {
   background: #6890F0;
 }
-.electric{
+
+.electric {
   background: #F8D030;
 }
-.grass{
+
+.grass {
   background: #78C850;
 }
-.flying{
+
+.flying {
   background: #A890F0;
 }
-.rock{
+
+.rock {
   background: #B8A038;
 }
-.steel{
+
+.steel {
   background: #B8B8D0;
 }
-.ground{
+
+.ground {
   background: #E0C068;
 }
-.bug{
+
+.bug {
   background: #A8B820;
 }
-.poison{
+
+.poison {
   background: #A040A0;
 }
-.ice{
+
+.ice {
   background: #98D8D8;
 }
-.fighting{
+
+.fighting {
   background: #C03028;
 }
-.psychic{
+
+.psychic {
   background: #F85888;
 }
-.dark{
+
+.dark {
   background: #705848;
 }
-.ghost{
+
+.ghost {
   background: #705898;
 }
-.dragon{
+
+.dragon {
   background: #7038F8;
 }
-.fairy{
+
+.fairy {
   background: #F0B6BC;
 }
 
@@ -144,13 +157,14 @@
   right: 1em;
   background: url("../../../assets/bg/background-list-pokemons.svg") no-repeat;
 
-  img{
+  img {
     width: 80%;
   }
 
 
 }
-.load-pokemon{
+
+.load-pokemon {
   display: flex;
   justify-content: center;
 }

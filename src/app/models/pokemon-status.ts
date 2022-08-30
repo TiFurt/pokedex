@@ -1,3 +1,5 @@
+import {PokemonStats} from "./pokemon-stats";
+
 export interface PokemonStatus {
   abilities: Array<any>,
   base_experience: number
@@ -25,7 +27,7 @@ export interface PokemonStatus {
       home: { front_default:string, front_female: string, front_shiny: string, front_shiny_female: string },
       "official-artwork": {front_default:string}},
     versions:any},
-  stats: Array<any>,
+  stats: Array<PokemonStats>,
   types: Array<{ slot: number, type:{name: string, url:string} }>,
   weight: number,
 }

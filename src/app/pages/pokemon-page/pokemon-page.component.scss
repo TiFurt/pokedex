@@ -5,6 +5,7 @@
   height: 100%;
   margin-top: 50px;
   min-width: 37em;
+
 }
 .pokemon_img {
   position: absolute;
@@ -17,17 +18,54 @@
   font-family: Roboto-Italic, sans-serif;
   color: #888888;
   h1{
+    font-size: 3.5em;
     position: absolute;
     right: 0.8em;
     top: -2em;
     opacity: 20%;
-    font-size: 3em;
   }
 
   h2{
+    font-size: 2em;
     position: absolute;
     right: 2em;
     top: -2em;
 
+  }
+}
+
+.stats{
+  padding: 5em 2em;
+  &__tittle{
+    font-family: Roboto-Italic, sans-serif;
+    text-decoration: underline;
+  }
+  &__stats{
+    font-family: Roboto-Italic, sans-serif;
+    padding: 0;
+  }
+  &__info{
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0.2em 0;
+  }
+}
+
+.button{
+  width: 100%;
+  text-align: center;
+  &__comeback{
+    color: #FFF;
+
+    font-family: Roboto-Italic, sans-serif;
+    font-size: 1.5em;
+
+    text-decoration: none;
+
+    min-width: 80%;
+    min-height: 2em;
+    border-radius: 1em;
+    border-style: none;
   }
 }

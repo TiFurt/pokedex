@@ -45,14 +45,13 @@ export class GetPokedexService {
       map(
         res => res
       )
-
     )
   }
 
-  public getNextPage(url: string): Observable<any>{
+  public getNextPage(url: string): Observable<any> {
     return this.http.get<any>(url).pipe(
-      tap(res =>{
-        res.results.map((resPokemon:any)=>{
+      tap(res => {
+        res.results.map((resPokemon: any) => {
           this.apiGetPokemon(resPokemon.url).subscribe(
             res => resPokemon.status = res
           )
@@ -61,7 +60,7 @@ export class GetPokedexService {
     )
   }
 
-  public getAllPokemons(): Observable<Pokedex>{
+  public getAllPokemons(): Observable<Pokedex> {
     return this.http.get<Pokedex>(`${this.pokedexUrl}${this.allPokemon}`).pipe(
       res => res,
       error => error,

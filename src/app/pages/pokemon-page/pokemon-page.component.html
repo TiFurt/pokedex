@@ -1,10 +1,22 @@
 <app-pokedex-header></app-pokedex-header>
 <div class="pokemon_stats">
   <div class="pokemon_img">
-    <img [src]="pokemon.sprites.other['official-artwork'].front_default">
+    <img [src]="pokemon.sprites.other['official-artwork'].front_default" [alt]="pokemon.name">
   </div>
   <div class="pokemon-name">
-    <h1>{{pokemonSpecie.names[0].name}}</h1>
+    <h1>{{pokemonSpecie?.names[0]?.name}}</h1>
     <h2>{{pokemon.name | titlecase}}</h2>
+  </div>
+  <div class="stats" [ngStyle]="{'color': pokemonSpecie.color.name}">
+    <h2 class="stats__tittle">Estatísticas</h2>
+    <ul class="stats__stats">
+      <li *ngFor="let stats of pokemon.stats" class="stats__info">
+        <div class="stats__name">{{ stats.stat.name | titlecase}}</div>
+        <div class="stats__result">{{stats.base_stat}}</div>
+      </li>
+    </ul>
+  </div>
+  <div class="button">
+  <button class="button__comeback" (click)="homePage()" [ngStyle]="{'background': pokemonSpecie.color.name}">Voltar</button>
   </div>
 </div>

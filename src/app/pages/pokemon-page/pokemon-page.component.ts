@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {GetPokedexService} from "../../services/get-pokedex.service";
 import {PokemonStatus} from "../../models/pokemon-status";
 import {tap} from "rxjs";
@@ -27,21 +27,25 @@ export class PokemonPageComponent implements OnInit {
     order: 0,
     past_types: [],
     species: {},
-    sprites: { back_default: '',
+    sprites: {
+      back_default: '',
       back_female: null,
       back_shiny: '',
       back_shiny_female: null,
-      front_default:'',
-      front_female:null,
-      front_shiny:'',
-      front_shiny_female:null,
-      other: { dream_world:{front_default:'',front_female:null},
-        home:{front_default:'', front_female: '', front_shiny: '', front_shiny_female: ''},
-        "official-artwork": {front_default:'string'}},
-      versions: {}},
+      front_default: '',
+      front_female: null,
+      front_shiny: '',
+      front_shiny_female: null,
+      other: {
+        dream_world: {front_default: '', front_female: null},
+        home: {front_default: '', front_female: '', front_shiny: '', front_shiny_female: ''},
+        "official-artwork": {front_default: 'string'}
+      },
+      versions: {}
+    },
 
     stats: [],
-    types: [{ slot: 0, type:{name: '', url:''} }],
+    types: [{slot: 0, type: {name: '', url: ''}}],
     weight: 0,
   }
 
@@ -50,26 +54,41 @@ export class PokemonPageComponent implements OnInit {
   constructor(
     private activedRoute: ActivatedRoute,
     private getPokemonService: GetPokedexService,
-  ) { }
+    private router: Router
+  ) {
+  }
 
   ngOnInit(): void {
     this.activedRoute.params.subscribe(
       res => {
-        console.log(res)
         this.getPokemonService.getPokemon(res['name']).pipe(
-          tap( res => {
+          tap(res => {
             this.pokemon = res
           })
         ).subscribe()
         this.getPokemonService.getPokemonSpecies(res['name']).pipe(
-          tap( res => {
-            console.log(res)
+          tap(res => {
+            switch (res.color.name) {
+              case 'pink':
+                res.color.name = 'deeppink'
+                break
+              case 'yellow':
+                res.color.name = 'darkgoldenrod'
+                break
+              case 'white':
+                res.color.name = 'grey'
+                break
+            }
             this.pokemonSpecie = res
           })
         ).subscribe()
       }
     )
 
+  }
+
+  public homePage() {
+    this.router.navigateByUrl('')
   }
 
 }

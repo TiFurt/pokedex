@@ -8,7 +8,7 @@
           <li [ngClass]="type.type.name" *ngFor="let type of pokemon.status.types">{{type.type.name}}</li>
         </ul>
         <section class="pokemon-img">
-          <img  [src]="pokemon?.status?.sprites?.other?.['official-artwork']?.front_default" [alt]="pokemon.name">
+          <img [src]="pokemon?.status?.sprites?.other?.['official-artwork']?.front_default" [alt]="pokemon.name">
         </section>
       </div>
     </a>

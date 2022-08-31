@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable, tap} from "rxjs";
 import {Pokedex} from "../models/pokedex";
 import {PokemonStatus} from "../models/pokemon-status";
+import {PokemonSpecies} from "../models/pokemon-species";
 
 @Injectable({
   providedIn: 'root'
@@ -82,8 +83,8 @@ export class GetPokedexService {
     )
   }
 
-  public getPokemonSpecies(name: string): Observable<any> {
-    return this.http.get<any>(`${this.pokemonSpeciesUrl}${name}`).pipe(
+  public getPokemonSpecies(name: string): Observable<PokemonSpecies> {
+    return this.http.get<PokemonSpecies>(`${this.pokemonSpeciesUrl}${name}`).pipe(
       res => res,
       error => error
     )

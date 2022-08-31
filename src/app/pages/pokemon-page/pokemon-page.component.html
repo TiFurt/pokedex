@@ -1,10 +1,10 @@
 <div class="pokemon_stats">
   <div class="pokemon_img">
-    <img class="img" [src]="pokemon.sprites.other['official-artwork'].front_default" [alt]="pokemon.name">
+    <img class="img slideInDown" [src]="pokemon.sprites.other['official-artwork'].front_default" [alt]="pokemon.name">
   </div>
   <div class="pokemon_name">
-    <h1 class="ja-name">{{pokemonSpecie?.names[0]?.name}}</h1>
-    <h2 class="common-name">{{pokemon.name | titlecase}}</h2>
+    <h1 class="ja-name slideInRight">{{pokemonSpecie.names[0].name}}</h1>
+    <h2 class="common-name slideInLeft">{{pokemon.name | titlecase}}</h2>
   </div>
   <div class="stats" [ngStyle]="{'color': pokemonSpecie.color.name}">
     <h2 class="stats__tittle">Estatísticas</h2>

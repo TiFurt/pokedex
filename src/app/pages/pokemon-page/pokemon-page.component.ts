@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {GetPokedexService} from "../../services/get-pokedex.service";
 import {PokemonStatus} from "../../models/pokemon-status";
 import {tap} from "rxjs";
+import {PokemonSpecies} from "../../models/pokemon-species";
 
 
 @Component({
@@ -39,7 +40,7 @@ export class PokemonPageComponent implements OnInit {
       other: {
         dream_world: {front_default: '', front_female: null},
         home: {front_default: '', front_female: '', front_shiny: '', front_shiny_female: ''},
-        "official-artwork": {front_default: 'string'}
+        "official-artwork": {front_default: '""'}
       },
       versions: {}
     },
@@ -49,7 +50,77 @@ export class PokemonPageComponent implements OnInit {
     weight: 0,
   }
 
-  public pokemonSpecie: any = {}
+  public pokemonSpecie: PokemonSpecies = {
+    "base_happiness": 0,
+    "capture_rate": 0,
+    "color": {
+      "name": "",
+      "url": ""
+    },
+    "egg_groups": [],
+    "evolution_chain": {
+      "url": ""
+    },
+    "evolves_from_species": "",
+    "flavor_text_entries": [{
+      "flavor_text": "",
+      "language": {
+        "name": "",
+        "url": ""
+      },
+      "version": {
+        "name": "",
+        "url": ""
+      }
+    }],
+
+
+    "form_descriptions": [],
+    "forms_switchable": false,
+    "gender_rate": 0,
+    "genera": [{ "genus": "",
+      "language": {
+        "name": "",
+        "url": ""
+      } }],
+
+    "generation": {
+      "name": "",
+      "url": ""
+    },
+    "growth_rate": {
+      "name": "",
+      "url": ""
+    },
+    "habitat": {
+      "name": "",
+      "url": ""
+    },
+    "has_gender_differences": false,
+    "hatch_counter": 0,
+    "id": 0,
+    "is_baby": false,
+    "is_legendary": false,
+    "is_mythical": false,
+    "name": "",
+    "names": [{
+      "language": {
+        "name": "",
+        "url": ""
+      },
+      "name": ""
+    }],
+
+
+    "order": 0,
+    "pal_park_encounters": [],
+    "pokedex_numbers": [],
+    "shape": {
+      "name": "",
+      "url": ""
+    },
+  "varieties": []
+}
 
   constructor(
     private activedRoute: ActivatedRoute,
@@ -89,6 +160,10 @@ export class PokemonPageComponent implements OnInit {
 
   public homePage() {
     this.router.navigateByUrl('')
+  }
+
+  public consoleLog() {
+    console.log(this.pokemonSpecie)
   }
 
 }
